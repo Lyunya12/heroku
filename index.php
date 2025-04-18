@@ -1,14 +1,10 @@
 <?php
 
-include 'post.php';
-
-
+session_start();
 
 if (!empty($_SESSION["userName"])) {
-    echo "Привет," $_SESSION["userName"];
-    header("HTTP/1.1 301 Moved Permanently");
-    header('Location: /exit.php');
+    echo "Привет," . $_SESSION["userName"];
+	echo "<a href='exit.php'>Exit </a>";
 } else {
-    header("HTTP/1.1 301 Moved Permanently");
-    header('Location: /form.xtml');
+	include './form.html';
 }
